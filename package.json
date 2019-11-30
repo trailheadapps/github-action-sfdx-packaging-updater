@@ -1,0 +1,38 @@
+{
+    "name": "sfdx-packaging-results",
+    "version": "1.0.0",
+    "description": "Removes not needed package versions from sfdx-project.json and updates references in the README.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "prettier": "prettier --write '**/*.{js,json,md,yaml,yml}'"
+    },
+    "keywords": [
+        "github",
+        "actions"
+    ],
+    "author": "muenzpraeger",
+    "license": "CC0-1.0",
+    "dependencies": {
+        "@actions/core": "^1.1.3"
+    },
+    "repository": "muenzpraeger/github-action-sfdx-packaging-updater",
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "husky": "^3.0.9",
+        "prettier": "^1.19.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.{js,json,md,yaml,yml}": [
+            "prettier --write"
+        ],
+        "*": [
+            "git add"
+        ]
+    }
+}

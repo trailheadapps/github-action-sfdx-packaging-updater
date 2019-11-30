@@ -1,0 +1,10 @@
+name: Remove package versions and update README
+description: Removes not needed package versions from sfdx-project.json and updates references in the README.
+author: muenzpraeger
+outputs:
+    isSuccess:
+        description: Response status if everything went ok.
+
+runs:
+    using: 'node12'
+    main: 'index.js'
