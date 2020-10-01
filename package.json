@@ -14,7 +14,7 @@
     "author": "muenzpraeger",
     "license": "CC0-1.0",
     "dependencies": {
-        "@actions/core": "^1.1.3"
+        "@actions/core": "^1.2.6"
     },
     "repository": "muenzpraeger/github-action-sfdx-packaging-updater",
     "devDependencies": {
