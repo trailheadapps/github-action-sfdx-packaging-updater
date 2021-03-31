@@ -11,12 +11,12 @@ async function run() {
         // We need all package directories
         const packageDirectories = sfdxJson.packageDirectories;
 
-        packageDirectories.forEach(dir => {
+        packageDirectories.forEach((dir) => {
             const package = dir.package;
             const packageKey = package + '@';
             const packageVersionKeys = [];
             const packageVersionIds = [];
-            Object.keys(sfdxJson.packageAliases).forEach(packageVersion => {
+            Object.keys(sfdxJson.packageAliases).forEach((packageVersion) => {
                 if (packageVersion.startsWith(packageKey)) {
                     packageVersionKeys.push(packageVersion);
                     packageVersionIds.push(
@@ -24,20 +24,27 @@ async function run() {
                     );
                 }
             });
-            const newPackageVersionId =
-                packageVersionIds[packageVersionIds.length - 1];
-            // Lets pop things so that we know what to delete
-            packageVersionKeys.pop();
-            packageVersionIds.pop();
-            // Removing all no longer needed package version keys
-            packageVersionKeys.forEach(version => {
-                delete sfdxJson.packageAliases[version];
-            });
-            // And we need now all IDs to replace them in the README
-            packageVersionIds.forEach(id => {
-                // If you want to use Regex to identify package version id => /04t(.*)\)/
-                readmeContent = readmeContent.replace(id, newPackageVersionId);
-            });
+
+            // Only update package version if there's a new release
+            if (packageVersionIds.length > 1) {
+                const newPackageVersionId =
+                    packageVersionIds[packageVersionIds.length - 1];
+                // Lets pop things so that we know what to delete
+                packageVersionKeys.pop();
+                packageVersionIds.pop();
+                // Removing all no longer needed package version keys
+                packageVersionKeys.forEach((version) => {
+                    delete sfdxJson.packageAliases[version];
+                });
+                // And we need now all IDs to replace them in the README
+                packageVersionIds.forEach((id) => {
+                    // If you want to use Regex to identify package version id => /04t(.*)\)/
+                    readmeContent = readmeContent.replace(
+                        id,
+                        newPackageVersionId
+                    );
+                });
+            }
         });
 
         // Writing back potential changes to the sfdx-project.json file...
