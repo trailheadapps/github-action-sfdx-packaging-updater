@@ -1,6 +1,6 @@
 name: Remove package versions and update README
 description: Removes not needed package versions from sfdx-project.json and updates references in the README.
-author: muenzpraeger
+author: Salesforce Developer Relations
 outputs:
     isSuccess:
         description: Response status if everything went ok.
