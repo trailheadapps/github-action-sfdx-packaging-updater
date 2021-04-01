@@ -1,6 +1,6 @@
 {
     "name": "sfdx-packaging-results",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Removes not needed package versions from sfdx-project.json and updates references in the README.",
     "main": "index.js",
     "scripts": {
@@ -14,12 +14,12 @@
         "github",
         "actions"
     ],
-    "author": "muenzpraeger",
+    "author": "Salesforce Developer Relations",
     "license": "CC0-1.0",
     "dependencies": {
         "@actions/core": "^1.2.6"
     },
-    "repository": "muenzpraeger/github-action-sfdx-packaging-updater",
+    "repository": "trailheadapps/github-action-sfdx-packaging-updater",
     "devDependencies": {
         "eslint": "^7.23.0",
         "husky": "^6.0.0",
