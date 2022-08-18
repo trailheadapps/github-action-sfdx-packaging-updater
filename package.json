@@ -17,7 +17,7 @@
     "author": "Salesforce Developer Relations",
     "license": "CC0-1.0",
     "dependencies": {
-        "@actions/core": "^1.2.6"
+        "@actions/core": "^1.9.1"
     },
     "repository": "trailheadapps/github-action-sfdx-packaging-updater",
     "devDependencies": {
