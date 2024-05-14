@@ -12,8 +12,8 @@ async function run() {
         const packageDirectories = sfdxJson.packageDirectories;
 
         packageDirectories.forEach((dir) => {
-            const package = dir.package;
-            const packageKey = package + '@';
+            const packageName = dir.package;
+            const packageKey = packageName + '@';
             const packageVersionKeys = [];
             const packageVersionIds = [];
             Object.keys(sfdxJson.packageAliases).forEach((packageVersion) => {

@@ -1,13 +1,13 @@
 {
     "name": "sfdx-packaging-results",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "Removes not needed package versions from sfdx-project.json and updates references in the README.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
         "lint": "eslint **/*.js",
         "prettier": "prettier --write '**/*.{js,json,md,yaml,yml}'",
-        "postinstall": "husky install",
+        "prepare": "husky || true",
         "precommit": "lint-staged"
     },
     "keywords": [
@@ -17,14 +17,14 @@
     "author": "Salesforce Developer Relations",
     "license": "CC0-1.0",
     "dependencies": {
-        "@actions/core": "^1.10.0"
+        "@actions/core": "^1.10.1"
     },
     "repository": "trailheadapps/github-action-sfdx-packaging-updater",
     "devDependencies": {
-        "eslint": "^8.34.0",
-        "husky": "^8.0.3",
-        "lint-staged": "^13.1.2",
-        "prettier": "^2.8.4"
+        "eslint": "^9.2.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^12.2.2",
+        "prettier": "^3.2.5"
     },
     "lint-staged": {
         "**/*.{js,json,md,yaml,yml}": [
@@ -33,7 +33,6 @@
         "**/*.js": "eslint"
     },
     "volta": {
-        "node": "16.19.0",
-        "npm": "8.19.3"
+        "node": "20.13.1"
     }
 }
